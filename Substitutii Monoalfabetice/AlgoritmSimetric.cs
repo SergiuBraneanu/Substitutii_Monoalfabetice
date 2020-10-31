@@ -6,7 +6,8 @@ namespace Substitutii_Monoalfabetice
 {
     interface IAlgoritmSimetric
     {
-         void Criptare(string text,int cheie);
+         string Criptare(string text,int cheie);
+         string Decriptare(string textcriptat, int cheie);
 
     }
 }

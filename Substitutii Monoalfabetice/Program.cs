@@ -6,7 +6,7 @@ namespace Substitutii_Monoalfabetice
     {
         static void Main(string[] args)
         {
-            Cifrul_lui_Cezar c = new Cifrul_lui_Cezar();
+            Cifrul_lui_Cezar cc = new Cifrul_lui_Cezar();
             Cifrul_lui_Cezar_generalizat cg = new Cifrul_lui_Cezar_generalizat();
             ROT13 rot = new ROT13();
             Substitutie_Monoalfabetica sm = new Substitutie_Monoalfabetica();
@@ -17,15 +17,21 @@ namespace Substitutii_Monoalfabetice
             int cheiecezar = 3;
             int cheierot = 13;
             
+            string a= cc.Criptare(text, cheiecezar);
+            string b= cg.Criptare(text, cheiecezargen);
+            string c= rot.Criptare(text, cheierot); ;
+            string d= sm.Criptare(text, 0);
+            Console.WriteLine("Textul criptat cu cifrul lui Cezar:{0}",a);
+            Console.WriteLine("Textul decriptat:{0}", cc.Decriptare(a, cheiecezar));
 
-            Console.Write("Textul criptat cu cifrul lui Cezar:");
-            c.Criptare(text, cheiecezar);
-            Console.Write("Textul criptat cu cifrul lui Cezar generalizat:");
-            cg.Criptare(text, cheiecezargen);
-            Console.Write("Textul criptat cu cifrul ROT13:");
-            rot.Criptare(text, cheierot);
-            Console.Write("Textul criptat prin substitutie monoalfabetica:");
-            sm.Criptare(text, 0);
+            Console.WriteLine("Textul criptat cu cifrul lui Cezar generalizat:{0}",b);
+            Console.WriteLine("Textul decriptat:{0}", cg.Decriptare(b, cheiecezargen));
+
+            Console.WriteLine("Textul criptat cu cifrul ROT13:{0}",c);
+            Console.WriteLine("Textul decriptat:{0}", rot.Decriptare(c, cheierot));
+
+            Console.WriteLine("Textul criptat prin substitutie monoalfabetica:{0}",d);
+            Console.WriteLine("Textul decriptat:{0}", sm.Decriptare(d, cheiecezar));
         }
     }
 }

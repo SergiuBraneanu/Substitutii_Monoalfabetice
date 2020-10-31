@@ -6,7 +6,7 @@ namespace Substitutii_Monoalfabetice
 {
     class ROT13:IAlgoritmSimetric
     {
-        public void Criptare(string text,int cheie)
+        public string Criptare(string text, int cheie)
         {
             StringBuilder textaux = new StringBuilder();
             foreach (char c in text)
@@ -19,7 +19,24 @@ namespace Substitutii_Monoalfabetice
                 }
                 else textaux.Append(c);
             }
-            Console.WriteLine(textaux);
+            text = textaux.ToString();
+            return text;
+        }
+        public string Decriptare(string textcriptat, int cheie)
+        {
+            StringBuilder textaux = new StringBuilder();
+            foreach (char k in textcriptat)
+            {
+                if (char.IsLetter(k))
+                {
+                    int aux = k - cheie;
+                    if (aux < 97) aux = 123 - (97 - aux);
+                    textaux.Append((char)aux);
+                }
+                else textaux.Append(k);
+            }
+            textcriptat = textaux.ToString();
+            return textcriptat;
         }
     }
 }

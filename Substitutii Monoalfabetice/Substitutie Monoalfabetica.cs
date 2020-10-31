@@ -6,7 +6,7 @@ namespace Substitutii_Monoalfabetice
 {
     class Substitutie_Monoalfabetica:IAlgoritmSimetric
     {
-        public void Criptare(string text,int cheie)
+        public string Criptare(string text,int cheie)
         {
             StringBuilder textaux = new StringBuilder();
             foreach(char c in text)
@@ -14,9 +14,20 @@ namespace Substitutii_Monoalfabetice
                 if (char.IsLetter(c)) textaux.Append((char)Schimbare(c));
                 else textaux.Append(c);
             }
-            Console.WriteLine(textaux);
+            text = textaux.ToString();
+            return text;
         }
-
+        public string Decriptare(string textcriptat, int cheie)
+        {
+            StringBuilder textaux = new StringBuilder();
+            foreach (char k in textcriptat)
+            {
+                if (char.IsLetter(k)) textaux.Append((char)Schimbare2(k));
+                else textaux.Append(k);
+            }
+            textcriptat = textaux.ToString();
+            return textcriptat;
+        }
         private int Schimbare(char c)
         {
             switch(c)
@@ -97,11 +108,97 @@ namespace Substitutii_Monoalfabetice
                     c = 'm';
                     break;
                 case 'z':
-                    c = 'a';
+                    c = 'r';
                     break;
             }
             return c;
 
+        }
+        private int Schimbare2(char k)
+        {
+            
+                switch (k)
+                {
+                    case 'v':
+                        k = 'a';
+                        break;
+                    case 'k':
+                        k = 'b';
+                        break;
+                    case 'p':
+                        k = 'c';
+                        break;
+                    case 'q':
+                        k = 'd';
+                        break;
+                    case 'y':
+                        k = 'e';
+                        break;
+                    case 'o':
+                        k = 'f';
+                        break;
+                    case 'l':
+                        k = 'g';
+                        break;
+                    case 'w':
+                        k = 'h';
+                        break;
+                    case 'z':
+                        k = 'i';
+                        break;
+                    case 'c':
+                        k = 'j';
+                        break;
+                    case 'i':
+                        k = 'k';
+                        break;
+                    case 'a':
+                        k = 'l';
+                        break;
+                    case 't':
+                        k = 'm';
+                        break;
+                    case 'b':
+                        k = 'n';
+                        break;
+                    case 's':
+                        k = 'o';
+                        break;
+                    case 'j':
+                        k = 'p';
+                        break;
+                    case 'x':
+                        k = 'q';
+                        break;
+                    case 'e':
+                        k = 'r';
+                        break;
+                    case 'n':
+                        k = 's';
+                        break;
+                    case 'd':
+                        k = 't';
+                        break;
+                    case 'f':
+                        k = 'u';
+                        break;
+                    case 'u':
+                        k = 'v';
+                        break;
+                    case 'h':
+                        k = 'w';
+                        break;
+                    case 'g':
+                        k = 'x';
+                        break;
+                    case 'm':
+                        k = 'y';
+                        break;
+                    case 'r':
+                        k = 'z';
+                        break;
+                }
+                return k;
         }
     }
 }
